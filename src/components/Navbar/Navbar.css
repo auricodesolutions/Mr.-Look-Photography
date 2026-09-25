@@ -1,0 +1,32 @@
+.site-header{position:fixed;inset:0 0 auto;z-index:1000;display:grid;grid-template-columns:auto 1fr;align-items:center;width:100%;min-height:82px;padding:12px clamp(24px,4vw,72px);color:#fff;background:linear-gradient(180deg,rgba(0,0,0,.36),transparent);border-bottom:1px solid rgba(255,255,255,.15);transition:min-height .45s var(--ease-out),padding .45s var(--ease-out),background .45s,color .35s,border-color .35s,backdrop-filter .45s;animation:nav-arrive .9s var(--ease-out) .2s both}
+.site-header.is-scrolled{min-height:62px;padding-block:8px;background:rgba(6,6,6,.98);border-color:rgba(255,255,255,.12);backdrop-filter:none}
+.brand{position:relative;z-index:2;justify-self:start;display:inline-flex;align-items:center;text-decoration:none;line-height:1;transition:transform .45s var(--ease-out)}
+.brand:hover{transform:translateY(-2px)}
+.brand .brand-logo{width:clamp(132px,10vw,164px);transition:width .45s var(--ease-out),transform .45s var(--ease-out)}
+.site-header.is-scrolled .brand-logo{width:145px;transform:scale(.94);transform-origin:left center}
+.desktop-nav{justify-self:end;display:flex;align-items:center;gap:clamp(20px,2.45vw,42px)}
+.desktop-nav a{position:relative;padding:10px 0;color:inherit;font-size:.62rem;font-weight:600;letter-spacing:.13em;text-decoration:none;text-shadow:0 2px 14px rgba(0,0,0,.35);text-transform:uppercase;opacity:.77;transition:opacity .3s,transform .35s var(--ease-out)}
+.desktop-nav a:hover,.desktop-nav a.is-active{opacity:1;transform:translateY(-2px)}
+.desktop-nav a::after{content:"";position:absolute;right:0;bottom:4px;left:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease-out)}
+.desktop-nav a:hover::after,.desktop-nav a.is-active::after{transform:scaleX(1);transform-origin:left}
+.desktop-nav a::before{content:"";position:absolute;top:50%;left:-11px;width:3px;height:3px;background:currentColor;opacity:0;transform:translateY(-50%) rotate(45deg) scale(0);transition:opacity .3s,transform .4s var(--ease-out)}
+.desktop-nav a.is-active::before{opacity:.8;transform:translateY(-50%) rotate(45deg) scale(1)}
+.menu-toggle{justify-self:end;display:none;position:relative;width:42px;height:42px;padding:0;border:0;background:transparent;color:inherit;cursor:pointer}
+.menu-toggle span{position:absolute;right:7px;left:7px;top:16px;height:1px;background:currentColor;transition:transform .4s var(--ease-out),top .4s var(--ease-out)}
+.menu-toggle span:last-child{top:25px;left:14px}
+.menu-toggle.is-open span{top:21px;left:7px;transform:rotate(45deg)}
+.menu-toggle.is-open span:last-child{transform:rotate(-45deg)}
+.mobile-menu{position:fixed;inset:0;z-index:900;display:grid;place-items:center;visibility:hidden;overflow:hidden;background:#f7f7f4;color:#111;opacity:0;clip-path:inset(0 0 100%);transition:clip-path .72s var(--ease-out),opacity .4s,visibility 0s .72s}
+.mobile-menu::before{content:"MR.LOOK";position:absolute;right:-7vw;bottom:-.12em;color:transparent;font:400 clamp(7rem,28vw,15rem)/1 var(--serif);letter-spacing:-.07em;-webkit-text-stroke:1px rgba(0,0,0,.065);pointer-events:none}
+.mobile-menu.is-open{visibility:visible;opacity:1;clip-path:inset(0);transition:clip-path .72s var(--ease-out),opacity .4s,visibility 0s}
+.mobile-menu nav{position:relative;z-index:1;width:min(84vw,520px)}
+.mobile-menu a{position:relative;display:block;padding:13px 4px;border-bottom:1px solid #d2d2ce;font:500 clamp(2.4rem,10vw,4.2rem)/1 var(--serif);letter-spacing:-.035em;text-decoration:none;opacity:0;transform:translateY(28px);transition:opacity .5s var(--ease-out),transform .5s var(--ease-out),padding-left .35s,color .3s}
+.mobile-menu a::after{content:"";position:absolute;right:0;bottom:-1px;left:0;height:1px;background:#111;transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease-out)}
+.mobile-menu.is-open a{opacity:1;transform:none;transition-delay:calc(170ms + var(--menu-delay)),calc(170ms + var(--menu-delay)),0s,0s}
+.mobile-menu a:hover,.mobile-menu a:focus-visible{padding-left:15px}
+.mobile-menu a:hover::after,.mobile-menu a:focus-visible::after{transform:scaleX(1)}
+.site-header:has(+.mobile-menu.is-open){color:#111;background:transparent;border-color:rgba(0,0,0,.12);backdrop-filter:none}
+.site-header:has(+.mobile-menu.is-open) .brand-logo img{filter:invert(1)}
+@keyframes nav-arrive{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:none}}
+@media(max-width:900px){.site-header{grid-template-columns:1fr auto;min-height:70px;padding:9px 5vw}.site-header.is-scrolled{min-height:58px;padding-block:7px}.desktop-nav{display:none}.menu-toggle{display:block}.brand .brand-logo{width:132px}.site-header.is-scrolled .brand-logo{width:122px}}
+@media(prefers-reduced-motion:reduce){.site-header,.mobile-menu,.mobile-menu a{animation:none;transition:none}.mobile-menu.is-open a{opacity:1;transform:none}}

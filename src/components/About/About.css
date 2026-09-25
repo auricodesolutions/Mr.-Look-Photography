@@ -1,0 +1,78 @@
+.about{position:relative;overflow:hidden;background:#fff}
+.about::before{content:"";position:absolute;top:12%;right:-8vw;width:28vw;height:28vw;border:1px solid rgba(0,0,0,.07);border-radius:50%;pointer-events:none;animation:about-orbit 14s ease-in-out infinite alternate}
+.about .section-heading{position:relative}
+.about .section-heading::after{content:"";position:absolute;bottom:-20px;left:0;width:min(150px,18vw);height:1px;background:#111;transform:scaleX(0);transform-origin:left;transition:transform 1.1s var(--ease-out) .25s}
+.about .section-heading.is-visible::after{transform:scaleX(1)}
+.about .section-heading h2{transition:letter-spacing 1s var(--ease-out)}
+.about .section-heading.is-visible h2{letter-spacing:-.06em}
+.about-grid{position:relative;display:grid;grid-template-columns:minmax(280px,.78fr) 1fr;gap:clamp(52px,9vw,150px);align-items:center}
+.about-portrait{position:relative;margin:0;padding:0 0 clamp(42px,5vw,70px) clamp(22px,3vw,50px)}
+.about-portrait::before{content:"";position:absolute;top:8%;right:-7%;bottom:0;left:0;border:1px solid var(--line);transform:translate3d(var(--motion-depth-far,0),0,0);transition:transform .8s var(--ease-out),background .5s}
+.about-portrait-frame{position:relative;z-index:1;overflow:hidden;background:#dedbd4;box-shadow:0 26px 62px rgba(20,19,16,.12)}
+.about-portrait-frame::after{content:"";position:absolute;inset:12px;border:1px solid rgba(255,255,255,.38);pointer-events:none;opacity:0;transform:scale(.97);transition:opacity .5s,transform .7s var(--ease-out)}
+.about-portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;filter:none;transform:scale(1.015);transition:transform 1.15s var(--ease-out),filter .7s}
+.about-portrait:hover img{transform:scale(1.065);filter:saturate(1.06)}
+.about-portrait:hover .about-portrait-frame::after{opacity:1;transform:none}
+.about-portrait:hover::before{transform:translate3d(10px,8px,0);background:#111}
+.about-portrait figcaption{position:absolute;z-index:2;right:-7%;bottom:0;display:grid;gap:7px;min-width:56%;padding:22px 25px;background:#10100f;color:#fff;box-shadow:0 20px 45px rgba(0,0,0,.18);transition:transform .55s var(--ease-out)}
+.about-portrait:hover figcaption{transform:translate3d(-8px,-7px,0)}
+.about-portrait figcaption span{font-size:.48rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.58}
+.about-portrait figcaption strong{font:400 clamp(1.15rem,1.7vw,1.6rem)/1.1 var(--serif)}
+.about-copy{max-width:700px}
+.about-lead{margin:0 0 26px;font:500 clamp(1.45rem,2.5vw,2.25rem)/1.4 var(--serif)}
+.about-copy>p:not(.about-lead){color:var(--muted);line-height:1.8}
+.about-copy blockquote{position:relative;margin:34px 0;padding:2px 0 2px 25px;border-left:1px solid #111;color:#595651;font:400 clamp(1.1rem,1.7vw,1.45rem)/1.5 var(--serif)}
+.about-copy ul{margin:34px 0;padding:0;list-style:none}
+.about-copy li{display:flex;align-items:center;gap:18px;padding:14px 0;border-bottom:1px solid var(--line);transition:padding-left .4s var(--ease-out),color .3s}
+.about-copy li::before{content:"";width:22px;height:1px;background:currentColor;transform:scaleX(.45);transform-origin:left;transition:transform .4s var(--ease-out)}
+.about-copy li:hover{padding-left:9px;color:#77736d}
+.about-copy li:hover::before{transform:scaleX(1)}
+@keyframes about-orbit{to{transform:translate3d(-5vw,4vw,0) scale(1.12)}}
+@media(max-width:900px){.about-grid{grid-template-columns:.85fr 1.15fr;gap:50px}.about-portrait figcaption{right:-4%}}
+@media(max-width:650px){.about-grid{grid-template-columns:1fr}.about-portrait{width:88%;padding-left:18px}.about-portrait figcaption{right:-10%}.about-copy{padding-top:8px}}
+@media(prefers-reduced-motion:reduce){.about-portrait img,.about-portrait::before,.about-portrait figcaption,.about-copy li{transition:none}.about-portrait:hover img{transform:none}}
+
+.about-beliefs{position:relative;overflow:hidden;padding:clamp(82px,10vw,150px) var(--gutter) clamp(110px,12vw,180px);background:#f3f3f1;color:#0b0b0b}
+.about-beliefs::before{content:"BELIEVE";position:absolute;top:1%;right:-2%;color:transparent;font:400 clamp(7rem,18vw,20rem)/1 var(--serif);letter-spacing:-.08em;-webkit-text-stroke:1px rgba(0,0,0,.055);pointer-events:none;transform:translateX(var(--motion-heading-shift,0));transition:transform .2s linear}
+.about-beliefs::after{content:"";position:absolute;bottom:-24vw;left:-12vw;width:46vw;height:46vw;border:1px solid rgba(0,0,0,.09);border-radius:50%;pointer-events:none;animation:belief-float 12s ease-in-out infinite alternate}
+.about-beliefs-heading{position:relative;z-index:1;display:grid;grid-template-columns:1.35fr .65fr;gap:16px 8vw;align-items:end;width:var(--page);margin:clamp(30px,4vw,64px) auto clamp(58px,7vw,104px);scroll-margin-top:120px}
+.about-beliefs-heading>p{grid-column:1;margin:0;color:#626262;font-size:.55rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+.about-beliefs-heading h2{grid-column:1;margin:0;padding:.08em 0 .05em;font:400 clamp(3.5rem,7vw,8.3rem)/.96 var(--serif);letter-spacing:-.06em;white-space:nowrap}
+.about-beliefs-heading>span{grid-column:2;grid-row:2;max-width:430px;padding-bottom:8px;color:#666;font-size:clamp(.8rem,1.1vw,1rem);line-height:1.7}
+.belief-grid{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);align-items:start;gap:clamp(10px,1.4vw,22px);width:var(--page);margin:0 auto clamp(58px,7vw,110px)}
+.belief-grid article{position:relative;isolation:isolate;min-height:clamp(330px,30vw,470px);overflow:hidden;padding:clamp(28px,3vw,48px);border:1px solid rgba(0,0,0,.16);background:#fff;color:#111;outline:0;box-shadow:0 18px 45px rgba(0,0,0,.035);transition:background .4s ease,border-color .4s ease,transform .5s var(--ease-out),box-shadow .5s var(--ease-out),opacity .75s,filter .75s}
+.belief-grid article:nth-child(2){margin-top:clamp(30px,4vw,62px);background:#e7e7e5}
+.belief-grid article:nth-child(3){background:#fafafa}
+.belief-grid article:nth-child(4){margin-top:clamp(30px,4vw,62px);background:#dededb}
+.belief-grid article::before{content:"";position:absolute;z-index:2;right:0;bottom:0;left:0;height:3px;background:#111;pointer-events:none;transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease-out)}
+.belief-grid article::after{content:"";position:absolute;top:20px;right:20px;width:42px;height:42px;border-top:1px solid currentColor;border-right:1px solid currentColor;opacity:.2;transform:scale(.65);transform-origin:top right;transition:transform .65s var(--ease-out),opacity .5s}
+.belief-grid article:hover,.belief-grid article:focus-visible{z-index:3;border-color:rgba(0,0,0,.3);background:#f8f8f6;transform:translateY(-6px);box-shadow:0 25px 56px rgba(0,0,0,.1)}
+.belief-grid article:hover::before,.belief-grid article:focus-visible::before{transform:scaleX(1)}
+.belief-grid article:hover::after,.belief-grid article:focus-visible::after{opacity:.38;transform:scale(.82)}
+.belief-grid article:focus-visible{outline:2px solid #111;outline-offset:4px}
+.belief-mark{display:block;width:34px;height:1px;margin-bottom:clamp(105px,11vw,170px);background:currentColor;opacity:.55;transform-origin:left;transition:width .5s var(--ease-out),transform .5s var(--ease-out)}
+.belief-grid article.is-visible .belief-mark{animation:belief-line 1s var(--ease-out) .35s both}
+.belief-grid article:hover .belief-mark,.belief-grid article:focus-visible .belief-mark{width:52px;transform:none}
+.belief-grid h3{margin:0 0 22px;font:400 clamp(1.65rem,2.15vw,2.55rem)/1 var(--serif);letter-spacing:-.035em}
+.belief-grid article>p{margin:0;color:#686868;font-size:.71rem;line-height:1.75;transition:color .45s}
+.belief-grid article:hover>p,.belief-grid article:focus-visible>p{color:#565652}
+@keyframes belief-line{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes belief-float{to{transform:translate3d(8vw,-4vw,0) scale(1.08)}}
+.about-action{position:relative;isolation:isolate;display:grid;place-items:center;min-height:clamp(540px,66vh,760px);overflow:hidden;padding:80px var(--gutter);background:#111;color:#fff;text-align:center}
+.about-action>img,.about-action-shade{position:absolute;inset:0;width:100%;height:100%}
+.about-action>img{z-index:-2;object-fit:cover;object-position:center 42%;transform:scale(1.025);transition:transform 1.8s var(--ease-out),filter .9s}
+.about-action-shade{z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.38),rgba(0,0,0,.72)),radial-gradient(circle at center,transparent,rgba(0,0,0,.38))}
+.about-action:hover>img{transform:scale(1.07);filter:saturate(1.07)}
+.about-action-copy>p{margin:0 0 21px;font-size:.56rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;opacity:.68}
+.about-action h2{margin:0;font:400 clamp(3rem,6vw,7rem)/.91 var(--serif);letter-spacing:-.055em;text-wrap:balance}
+.about-action-buttons{display:flex;justify-content:center;gap:12px;margin-top:clamp(38px,5vw,60px)}
+.about-action-buttons>a{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:space-between;gap:40px;min-width:210px;padding:18px 20px;border:1px solid rgba(255,255,255,.72);color:#fff;font-size:.55rem;font-weight:700;letter-spacing:.12em;text-decoration:none;text-transform:uppercase;overflow:hidden;transition:color .4s,transform .4s var(--ease-out),border-color .4s}
+.about-action-buttons>a::before{content:"";position:absolute;z-index:-1;inset:0;background:#fff;transform:translateX(-102%);transition:transform .55s var(--ease-out)}
+.about-action-buttons>a:first-child{background:#fff;color:#111}
+.about-action-buttons>a:first-child::before{background:#111;transform:translateX(-102%)}
+.about-action-buttons>a:hover{color:#111;transform:translateY(-4px);border-color:#fff}
+.about-action-buttons>a:hover::before{transform:none}
+.about-action-buttons>a:first-child:hover{color:#fff}
+@media(max-width:900px){.about-beliefs-heading{grid-template-columns:1fr}.about-beliefs-heading>*{grid-column:1!important;grid-row:auto!important}.about-beliefs-heading h2{white-space:normal}.belief-grid{grid-template-columns:repeat(2,1fr)}.belief-grid article{min-height:340px}.belief-grid article:nth-child(even){margin-top:35px}}
+@media(max-width:560px){.about-beliefs{padding-inline:18px}.belief-grid{grid-template-columns:1fr}.belief-grid article,.belief-grid article:nth-child(even){min-height:285px;margin-top:0}.belief-mark{margin-bottom:80px}.about-action{padding-inline:20px}.about-action-buttons{flex-direction:column;align-items:stretch}.about-action-buttons>a{min-width:0}.about-action h2{font-size:clamp(2.6rem,13vw,4.2rem)}}
+@media(prefers-reduced-motion:reduce){.about::before,.about-beliefs::after{animation:none}.belief-grid article,.belief-grid article::before,.belief-grid article::after,.belief-mark,.about-action>img,.about-action-buttons>a,.about-action-buttons>a::before{transition:none;animation:none}.belief-grid article:hover{transform:none}.about-action:hover>img{transform:none}}

@@ -1,0 +1,2 @@
+import { Link } from 'react-router-dom';import Arrow from '../common/Arrow.jsx';import './Contact.css';
+export default function Contact(){return <section className="contact" id="contact"><div data-reveal><p>Have a story to tell?</p><h2>Let&apos;s create something<br/><em>worth remembering.</em></h2><Link className="button button-light" to="/booking">Start a conversation <Arrow/></Link></div></section>}

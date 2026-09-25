@@ -1,0 +1,2 @@
+.brand-logo{position:relative;display:inline-block;width:clamp(120px,10vw,158px);aspect-ratio:49/16;color:inherit;line-height:1}
+.brand-logo img{display:block;width:100%;height:100%;object-fit:contain;filter:none;image-rendering:auto}

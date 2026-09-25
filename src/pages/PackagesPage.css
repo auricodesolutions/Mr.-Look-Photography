@@ -1,0 +1,5 @@
+.packages-page{min-height:80vh;padding-top:72px;background:var(--paper)}
+.packages-page .packages{padding-top:clamp(66px,8vw,116px)}
+.packages-page .section-heading h2{max-width:none;line-height:.96;padding-block:.06em}
+
+@media(max-width:900px){.packages-page{padding-top:58px}}

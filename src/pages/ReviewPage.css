@@ -1,0 +1,45 @@
+.reviews-page{background:#f6f6f3}
+.reviews-page .page-intro{margin-bottom:clamp(60px,8vw,115px)!important}
+.all-reviews{width:var(--page);margin:auto}
+.all-reviews-heading{display:grid;grid-template-columns:1.3fr .7fr;align-items:end;gap:35px;margin-bottom:clamp(38px,5vw,68px);padding-bottom:25px;border-bottom:1px solid #bdbdba}
+.all-reviews-heading span,.write-review-intro>span{display:block;margin-bottom:13px;color:#6c6c68;font-size:.52rem;font-weight:700;letter-spacing:.17em;text-transform:uppercase}
+.all-reviews-heading h2,.write-review h2{margin:0;font:400 clamp(3.2rem,6vw,7rem)/.94 var(--serif);letter-spacing:-.055em}
+.all-reviews-heading>p{max-width:470px;margin:0;color:#696965;font-size:.76rem;line-height:1.75}
+.review-directory{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid #ccc;border-left:1px solid #ccc}
+.review-directory article{position:relative;display:flex;flex-direction:column;min-height:clamp(320px,28vw,430px);padding:clamp(28px,4vw,56px);overflow:hidden;border-right:1px solid #ccc;border-bottom:1px solid #ccc;background:#fff;color:#111;transition:background .5s var(--ease-out),color .5s var(--ease-out),transform .55s var(--ease-out),box-shadow .55s}
+.review-directory article::before{content:"";position:absolute;right:-80px;bottom:-80px;width:190px;height:190px;border:1px solid currentColor;border-radius:50%;opacity:.08;transform:scale(.55);transition:transform .7s var(--ease-out),opacity .4s}
+.review-directory article:hover{z-index:2;background:#111;color:#fff;transform:translateY(-7px);box-shadow:0 28px 65px rgba(0,0,0,.16)}
+.review-directory article:hover::before{opacity:.2;transform:scale(1)}
+.review-directory article>header{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.review-stars{display:inline-flex;gap:3px;color:#c7c7c3;font-size:.72rem;letter-spacing:.03em}
+.review-stars .is-filled{color:#111}
+.review-directory article:hover .review-stars .is-filled{color:#fff}
+.review-directory time{color:#777;font-size:.52rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;transition:color .4s}
+.review-directory blockquote{max-width:19ch;margin:clamp(54px,6vw,90px) 0 35px;font:400 clamp(1.5rem,2.45vw,2.7rem)/1.28 var(--serif);letter-spacing:-.025em}
+.review-directory footer{display:flex;align-items:center;gap:14px;margin-top:auto;color:#6b6b67;font-size:.62rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;transition:color .4s}
+.review-directory footer i{width:28px;height:1px;background:currentColor}
+.review-directory article:hover time,.review-directory article:hover footer{color:rgba(255,255,255,.65)}
+.write-review{display:grid;grid-template-columns:minmax(260px,.7fr) minmax(0,1.3fr);gap:clamp(50px,9vw,145px);width:var(--page);margin:clamp(85px,11vw,170px) auto 0;padding:clamp(45px,7vw,100px);background:#111;color:#fff}
+.write-review-intro{align-self:start}
+.write-review-intro>span{color:rgba(255,255,255,.52)}
+.write-review-intro>p{max-width:400px;margin:30px 0 0;color:rgba(255,255,255,.58);font-size:.76rem;line-height:1.8}
+.review-entry-form{display:grid;grid-template-columns:1fr 1fr;gap:30px 24px}
+.review-entry-form label{display:flex;flex-direction:column;gap:10px}
+.review-entry-form label>span,.review-entry-form legend{color:rgba(255,255,255,.72);font-size:.55rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
+.review-entry-form input,.review-entry-form textarea{width:100%;padding:14px 0;border:0;border-bottom:1px solid rgba(255,255,255,.38);border-radius:0;outline:none;background:transparent;color:#fff;transition:border-color .35s,transform .35s var(--ease-out)}
+.review-entry-form input:focus,.review-entry-form textarea:focus{border-color:#fff;transform:translateY(-2px)}
+.review-entry-form input::-webkit-calendar-picker-indicator{filter:invert(1)}
+.review-entry-form textarea{resize:vertical}
+.review-entry-form fieldset{grid-column:1/-1;margin:0;padding:0;border:0}
+.review-entry-form legend{margin-bottom:12px}
+.review-star-picker{display:flex;gap:8px}
+.review-star-picker button{padding:0;border:0;background:transparent;color:#555;font-size:clamp(1.7rem,3vw,2.6rem);line-height:1;cursor:pointer;transition:color .25s,transform .35s var(--ease-out)}
+.review-star-picker button.is-filled{color:#fff}
+.review-star-picker button:hover,.review-star-picker button:focus-visible{color:#fff;transform:translateY(-4px) scale(1.08);outline:0}
+.review-message{grid-column:1/-1}
+.review-form-status{grid-column:1/-1;margin:0;padding:13px 15px;border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.78);font-size:.7rem}
+.review-submit{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:35px;justify-self:start;min-width:235px;padding:16px 18px;border:1px solid #fff;border-radius:0;background:#fff;color:#111;font-size:.55rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;cursor:pointer;transition:background .35s,color .35s,transform .4s var(--ease-out)}
+.review-submit:hover{background:#111;color:#fff;transform:translateY(-4px)}
+@media(max-width:800px){.all-reviews-heading,.write-review{grid-template-columns:1fr}.review-directory{grid-template-columns:1fr}.review-directory article{min-height:330px}.write-review{gap:45px}}
+@media(max-width:560px){.all-reviews{width:100%}.all-reviews-heading h2{font-size:clamp(3rem,14vw,4.5rem)}.review-directory blockquote{margin-top:45px}.write-review{width:100%;padding:35px 22px}.review-entry-form{grid-template-columns:1fr}.review-entry-form label,.review-entry-form fieldset,.review-message{grid-column:1}.review-submit{width:100%;min-width:0}}
+@media(prefers-reduced-motion:reduce){.review-directory article,.review-directory article::before,.review-star-picker button,.review-submit{transition:none}.review-directory article:hover,.review-submit:hover{transform:none}}
