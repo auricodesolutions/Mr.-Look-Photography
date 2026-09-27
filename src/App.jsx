@@ -13,6 +13,7 @@ import Reviews from './components/Reviews/Reviews.jsx';
 import Faq from './components/Faq/Faq.jsx';
 import useReveal from './hooks/useReveal.js';
 import useSiteMotion from './hooks/useSiteMotion.js';
+import useSmoothScroll from './hooks/useSmoothScroll.js';
 import GalleryPage from './pages/GalleryPage.jsx';
 import AlbumsPage from './pages/AlbumsPage.jsx';
 import AlbumPage from './pages/AlbumPage.jsx';
@@ -40,12 +41,19 @@ function HomePage() {
 function ScrollManager() {
   const location = useLocation();
   useEffect(() => {
-    requestAnimationFrame(() => {
+    let secondFrame;
+    const firstFrame = requestAnimationFrame(() => {
+      secondFrame = requestAnimationFrame(() => {
       const target = location.hash && document.querySelector(location.hash);
       if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       else window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      });
     });
-  }, [location.pathname, location.hash]);
+    return () => {
+      cancelAnimationFrame(firstFrame);
+      if (secondFrame) cancelAnimationFrame(secondFrame);
+    };
+  }, [location.pathname, location.hash, location.key]);
   return null;
 }
 
@@ -74,6 +82,7 @@ function ScrollProgress() {
 
 export default function App() {
   const location = useLocation();
+  useSmoothScroll();
   useReveal(location.pathname);
   useSiteMotion(location.pathname);
   return <>

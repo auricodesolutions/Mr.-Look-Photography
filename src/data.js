@@ -19,7 +19,12 @@ export const albums = [
   { title: 'Sahanya & Pasindu', slug: 'album02', src: '/assets/optimized/albums/album02/cover.webp' },
   { title: 'Darshana & Nimashi', slug: 'album03', src: '/assets/optimized/albums/album03/cover.webp' },
   { title: 'Kavindi & Tharindu', slug: 'album04', src: '/assets/optimized/albums/album04/cover.webp' },
-  { title: 'Ayesh & Nethmi', slug: 'album05', src: '/assets/optimized/albums/album05/cover.webp' }
+  { title: 'Ayesh & Nethmi', slug: 'album05', src: '/assets/optimized/albums/album05/cover.webp' },
+  { title: 'Avinash & Maneesha — Highlights', slug: 'album06', sourceSlug: 'album01', src: '/assets/optimized/albums/album01/img2.webp' },
+  { title: 'Sahanya & Pasindu — Highlights', slug: 'album07', sourceSlug: 'album02', src: '/assets/optimized/albums/album02/img2.webp' },
+  { title: 'Darshana & Nimashi — Highlights', slug: 'album08', sourceSlug: 'album03', src: '/assets/optimized/albums/album03/img2.webp' },
+  { title: 'Kavindi & Tharindu — Highlights', slug: 'album09', sourceSlug: 'album04', src: '/assets/optimized/albums/album04/img2.webp' },
+  { title: 'Ayesh & Nethmi — Highlights', slug: 'album10', sourceSlug: 'album05', src: '/assets/optimized/albums/album05/img2.webp' }
 ];
 
 export const packages = [

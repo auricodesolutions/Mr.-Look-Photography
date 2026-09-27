@@ -47,11 +47,12 @@ html.inertial-scroll{scroll-behavior:auto}
 
 .motion-section .motion-media{
   clip-path:inset(0);
-  transition:clip-path .85s var(--ease-out),transform .85s var(--ease-out),filter .5s ease;
+  opacity:1;
+  transition:clip-path 1s var(--ease-out),opacity .75s ease,transform .95s var(--ease-out),filter .7s ease;
 }
 
-.site-motion-ready .motion-section[data-motion-side="left"]:not(.is-motion-visible) .motion-media{clip-path:inset(0 15% 0 0)}
-.site-motion-ready .motion-section[data-motion-side="right"]:not(.is-motion-visible) .motion-media{clip-path:inset(0 0 0 15%)}
+.site-motion-ready .motion-section[data-motion-side="left"]:not(.is-motion-visible) .motion-media{clip-path:inset(0 15% 0 0);opacity:.35;filter:blur(3px) saturate(.8)}
+.site-motion-ready .motion-section[data-motion-side="right"]:not(.is-motion-visible) .motion-media{clip-path:inset(0 0 0 15%);opacity:.35;filter:blur(3px) saturate(.8)}
 
 .button{
   position:relative;

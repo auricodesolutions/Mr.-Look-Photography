@@ -35,15 +35,15 @@
   cursor:pointer;
   text-decoration:none;
   text-align:left;
-  transition:color .45s,padding-left .55s var(--ease-out),background .45s;
+  transition:color .72s ease,padding-left .78s var(--ease-out),background .72s ease,box-shadow .78s var(--ease-out);
 }
-.service-selector>a::before{content:"";position:absolute;inset:0;z-index:0;background:#11110f;transform:scaleX(0);transform-origin:right;transition:transform .55s var(--ease-out)}
+.service-selector>a::before{content:"";position:absolute;inset:0;z-index:0;background:#11110f;transform:scaleX(0);transform-origin:right;transition:transform .9s var(--ease-out)}
 .service-selector>a span,.service-selector>a .arrow{position:relative;z-index:1}
 .service-selector>a span{font-size:clamp(1.1rem,1.75vw,1.65rem);font-weight:650;letter-spacing:.055em;text-transform:uppercase}
-.service-selector>a .arrow{color:#8c867d;transition:transform .45s var(--ease-out),color .4s}
+.service-selector>a .arrow{color:#8c867d;transition:transform .72s var(--ease-out),color .65s ease}
 .service-selector>a:hover,.service-selector>a:focus-visible,.service-selector>a.is-active{padding-left:clamp(17px,1.8vw,28px);color:#fff}
 .service-selector>a:hover::before,.service-selector>a:focus-visible::before,.service-selector>a.is-active::before{transform:scaleX(1);transform-origin:left}
-.service-selector>a:hover .arrow,.service-selector>a:focus-visible .arrow,.service-selector>a.is-active .arrow{color:#fff;transform:translate(4px,-2px)}
+.service-selector>a:hover .arrow,.service-selector>a:focus-visible .arrow,.service-selector>a.is-active .arrow{color:#fff;transform:translate(3px,0)}
 .service-selector>a:focus-visible{outline:1px solid #11110f;outline-offset:3px}
 
 .service-visual{position:relative;isolation:isolate;min-height:clamp(560px,72vh,760px);overflow:hidden;background:#090b09;box-shadow:0 34px 80px rgba(0,0,0,.28)}
@@ -57,8 +57,8 @@
 .service-visual-copy p{margin:0 0 10px;color:#d1c3a8;font-size:.55rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
 .service-visual-copy h3{margin:0 0 14px;color:#fff;font:500 clamp(2.7rem,4.5vw,5rem)/.92 var(--serif);letter-spacing:-.035em;text-shadow:0 8px 28px rgba(0,0,0,.35)}
 .service-visual-copy>span{display:block;max-width:48ch;color:rgba(255,255,255,.88);font-size:15px;font-weight:300;line-height:1.6666666667;text-shadow:0 3px 14px rgba(0,0,0,.4)}
-.service-visual-copy a{display:inline-flex;align-items:center;gap:24px;margin-top:22px;padding-bottom:7px;border-bottom:1px solid rgba(255,255,255,.7);color:#fff;font-size:.56rem;font-weight:700;letter-spacing:.13em;text-decoration:none;text-transform:uppercase;transition:gap .4s,color .3s}
-.service-visual-copy a:hover{gap:34px;color:#d1c3a8}
+.service-visual-copy a{display:inline-flex;align-items:center;gap:24px;margin-top:22px;padding-bottom:7px;border-bottom:1px solid rgba(255,255,255,.7);color:#fff;font-size:.56rem;font-weight:700;letter-spacing:.13em;text-decoration:none;text-transform:uppercase;transition:gap .72s var(--ease-out),color .6s ease}
+.service-visual-copy a:hover,.service-visual-copy a:focus-visible{gap:31px;color:#d1c3a8}
 
 @keyframes service-image-reveal{from{opacity:0;clip-path:inset(0 0 100% 0);transform:translateY(20px)}to{opacity:1;clip-path:inset(0);transform:none}}
 @keyframes service-image-drift{from{transform:scale(1.09)}to{transform:scale(1.035)}}

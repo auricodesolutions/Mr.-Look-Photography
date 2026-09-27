@@ -20,13 +20,11 @@
 .terms-content{border-top:1px solid var(--line)}
 .terms-content article{
   display:grid;
-  grid-template-columns:42px 1fr;
-  gap:clamp(18px,3vw,45px);
+  grid-template-columns:1fr;
   padding:clamp(28px,4vw,50px) 0;
   border-bottom:1px solid var(--line);
 }
 
-.terms-content article>span{padding-top:7px;color:var(--muted);font-size:.58rem;letter-spacing:.1em}
 .terms-content h2{margin:0 0 14px;font:500 clamp(1.5rem,2.5vw,2.4rem)/1.15 var(--serif);letter-spacing:-.035em}
 .terms-content p{max-width:760px;margin:0;color:var(--muted);line-height:1.8}
 .terms-content a{color:var(--ink)}
@@ -36,7 +34,7 @@
   .terms-page .page-intro h1{font-size:clamp(2.6rem,12vw,4.2rem);white-space:normal}
   .terms-layout{grid-template-columns:1fr;gap:38px}
   .terms-layout aside{position:static;padding:22px;border:1px solid var(--line);background:#fff}
-  .terms-content article{grid-template-columns:30px 1fr;gap:13px}
+  .terms-content article{grid-template-columns:1fr}
   .terms-content h2{font-size:1.45rem}
   .terms-content p{font-size:.82rem}
 }

@@ -86,7 +86,7 @@ export default function Hero() {
       </h1>
       <p className="hero-signature hero-enter delay-1">Mr.Look Weddings</p>
       <div className="hero-actions hero-enter delay-2">
-        <Link className="hero-button hero-button-secondary" to="/gallery">View Albums <Arrow/></Link>
+        <Link className="hero-button hero-button-secondary" to="/albums">View Albums <Arrow/></Link>
         <Link className="hero-button hero-button-primary" to="/booking">Book now <Arrow/></Link>
       </div>
     </div>

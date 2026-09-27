@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import BrandLogo from '../common/BrandLogo.jsx';
 import './Navbar.css';
 
 const items = [
   ['home', 'Home', '/#home'],
-  ['projects', 'Stories', '/#projects'],
+  ['stories', 'Stories', '/#stories'],
   ['albums', 'Albums', '/#albums'],
   ['about', 'About', '/about'],
   ['packages', 'Packages', '/packages'],
@@ -14,6 +14,7 @@ const items = [
 
 export default function Navbar() {
   const location = useLocation();
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState('home');
@@ -43,16 +44,27 @@ export default function Navbar() {
     return false;
   };
 
+  const followLink = (event, to) => {
+    setOpen(false);
+    const hash = to.includes('#') ? to.slice(to.indexOf('#') + 1) : '';
+    if (location.pathname !== '/' || !hash) return;
+    const target = document.getElementById(hash);
+    if (!target) return;
+    event.preventDefault();
+    navigate(to);
+    requestAnimationFrame(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+  };
+
   return <>
     <header className={`site-header ${scrolled || location.pathname !== '/' ? 'is-scrolled' : ''}`}>
-      <Link className="brand" to="/#home" onClick={() => setOpen(false)} aria-label="MR.LOOK Photography home"><BrandLogo/></Link>
+      <Link className="brand" to="/#home" onClick={event => followLink(event, '/#home')} aria-label="MR.LOOK Photography home"><BrandLogo/></Link>
       <nav className="desktop-nav" aria-label="Primary navigation">
-        {items.map(([id,label,to]) => <Link key={id} className={isActive(id)?'is-active':''} to={to} aria-current={isActive(id)?'page':undefined}>{label}</Link>)}
+        {items.map(([id,label,to]) => <Link key={id} className={isActive(id)?'is-active':''} to={to} onClick={event => followLink(event, to)} aria-current={isActive(id)?'page':undefined}>{label}</Link>)}
       </nav>
       <button className={`menu-toggle ${open?'is-open':''}`} type="button" aria-label={open?'Close menu':'Open menu'} aria-expanded={open} onClick={() => setOpen(!open)}><span/><span/></button>
     </header>
     <div className={`mobile-menu ${open?'is-open':''}`} aria-hidden={!open}>
-      <nav aria-label="Mobile navigation">{items.map(([id,label,to],index) => <Link key={id} to={to} style={{'--menu-delay':`${index*65}ms`}} onClick={() => setOpen(false)}>{label}</Link>)}</nav>
+      <nav aria-label="Mobile navigation">{items.map(([id,label,to],index) => <Link key={id} to={to} style={{'--menu-delay':`${index*65}ms`}} onClick={event => followLink(event, to)}>{label}</Link>)}</nav>
     </div>
   </>;
 }

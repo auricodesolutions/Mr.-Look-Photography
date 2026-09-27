@@ -8,7 +8,7 @@ export default function useSiteMotion(routeKey) {
     sections.forEach((section, index) => {
       section.classList.add('motion-section');
       section.dataset.motionSide = index % 2 ? 'right' : 'left';
-      section.querySelectorAll('figure > img:not(.story-photo), .package-card > img, .album-card img, .full-gallery img, .albums-page-grid img, .about-grid img').forEach(image => image.classList.add('motion-media'));
+      section.querySelectorAll('figure > img:not(.story-photo), .package-card img, .album-card img, .full-gallery img, .albums-page-grid img, .about-grid img, .service-visual img, .service-image-stage img').forEach(image => image.classList.add('motion-media'));
     });
 
     document.documentElement.classList.add('site-motion-ready');

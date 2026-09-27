@@ -20,7 +20,7 @@ function Icon({ name }) {
 }
 
 const contacts = [
-  ['phone', 'Call the studio', 'tel:+94776767239'],
+  ['phone', '077 003 7239', 'tel:+94770037239'],
   ['mail', 'mr.lookphotographer@gmail.com', 'mailto:mr.lookphotographer@gmail.com'],
   ['clock', 'Monday to Saturday · By appointment', null],
 ];
@@ -28,7 +28,7 @@ const contacts = [
 const socials = [
   ['instagram', 'Instagram', 'https://www.instagram.com/mr_look_weddding'],
   ['facebook', 'Facebook', 'https://www.facebook.com/share/18PYFh14oV/'],
-  ['whatsapp', 'WhatsApp', 'https://wa.me/94776767279'],
+  ['whatsapp', 'WhatsApp', 'https://wa.me/94770037239'],
 ];
 
 export default function Footer() {

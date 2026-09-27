@@ -210,20 +210,20 @@
 .lightbox{
   position:fixed;
   inset:0;
-  z-index:2000;
+  z-index:20000;
   display:grid;
   place-items:center;
-  padding:5vw;
-  background:rgba(0,0,0,.93);
+  padding:clamp(58px,5vw,86px) clamp(70px,7vw,130px);
+  background:rgba(4,4,4,.96);
   color:#fff;
-  backdrop-filter:blur(12px);
+  backdrop-filter:blur(8px);
   animation:lightbox-in .4s ease both;
 }
 
-.lightbox figure{margin:0;max-width:min(84vw,1250px);animation:lightbox-figure-in .7s var(--ease-out) both}
-.lightbox figure img{max-height:80vh;margin:auto;object-fit:contain;box-shadow:0 28px 80px rgba(0,0,0,.45)}
+.lightbox figure{position:relative;z-index:1;display:grid;justify-items:center;max-width:min(84vw,1250px);max-height:calc(100dvh - 116px);margin:0;animation:lightbox-figure-in .7s var(--ease-out) both}
+.lightbox figure img{display:block;width:auto;height:auto;max-width:100%;max-height:calc(100dvh - 155px);margin:auto;object-fit:contain;box-shadow:0 28px 80px rgba(0,0,0,.55)}
 .lightbox figcaption{margin-top:13px;color:rgba(255,255,255,.7);font-size:.59rem;letter-spacing:.14em;text-transform:uppercase}
-.lightbox button{position:fixed;z-index:2;border:1px solid rgba(255,255,255,.42);border-radius:0;background:rgba(0,0,0,.28);color:#fff;cursor:pointer;backdrop-filter:blur(8px);transition:background .3s,color .3s,transform .35s var(--ease-out)}
+.lightbox button{position:fixed;z-index:3;border:1px solid rgba(255,255,255,.42);border-radius:0;background:rgba(0,0,0,.42);color:#fff;cursor:pointer;backdrop-filter:blur(8px);transition:background .3s,color .3s,transform .35s var(--ease-out)}
 .lightbox button:hover{background:#fff;color:#090909}
 .lightbox-close{top:24px;right:28px;padding:10px 14px;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase}
 .lightbox-arrow{top:50%;width:46px;height:46px;transform:translateY(-50%);font-size:1.1rem}

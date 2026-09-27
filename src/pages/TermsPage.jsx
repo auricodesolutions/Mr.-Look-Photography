@@ -28,11 +28,9 @@ export default function TermsPage() {
       </aside>
       <div className="terms-content">
         {sections.map(([title, copy], index) => <article key={title} data-reveal style={{'--delay':`${(index % 3) * 70}ms`}}>
-          <span>{String(index + 1).padStart(2, '0')}</span>
           <div><h2>{title}</h2><p>{copy}</p></div>
         </article>)}
         <article data-reveal>
-          <span>{String(sections.length + 1).padStart(2, '0')}</span>
           <div>
             <h2>Contact</h2>
             <p>Questions about these terms can be sent to <a href="mailto:mr.lookphotographer@gmail.com">mr.lookphotographer@gmail.com</a> or discussed with the studio before confirming a booking.</p>

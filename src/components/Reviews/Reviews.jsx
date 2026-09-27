@@ -20,7 +20,7 @@ export default function Reviews() {
 
   useEffect(() => {
     if (paused || !sectionInView || reviews.length < 2 || matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
-    const timer = setInterval(() => setActive(value => (value + 1) % reviews.length), 6000);
+    const timer = setInterval(() => setActive(value => (value + 1) % reviews.length), 5000);
     return () => clearInterval(timer);
   }, [paused, reviews.length, sectionInView]);
 

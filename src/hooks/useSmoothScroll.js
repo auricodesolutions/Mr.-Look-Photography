@@ -20,7 +20,7 @@ export default function useSmoothScroll() {
       previousTime = time;
       const current = window.scrollY;
       const distance = target - current;
-      const easing = 1 - Math.pow(0.001, elapsed / 380);
+      const easing = 1 - Math.pow(0.001, elapsed / 620);
       const next = current + distance * easing;
 
       if (Math.abs(distance) < .35) {
@@ -40,7 +40,7 @@ export default function useSmoothScroll() {
       const mode = event.deltaMode === WheelEvent.DOM_DELTA_LINE
         ? 18
         : event.deltaMode === WheelEvent.DOM_DELTA_PAGE ? window.innerHeight : 1;
-      const movement = clamp(event.deltaY * mode, -280, 280);
+      const movement = clamp(event.deltaY * mode * .78, -220, 220);
       if (!movement) return;
 
       event.preventDefault();

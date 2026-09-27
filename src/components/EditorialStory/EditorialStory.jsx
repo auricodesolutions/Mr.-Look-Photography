@@ -74,7 +74,7 @@ export default function EditorialStory() {
       </figure>
 
       <aside className="editorial-story-action" data-reveal style={{ '--delay': '350ms' }}>
-        <Link to="/gallery">View gallery <Arrow /></Link>
+        <Link to="/albums">View albums <Arrow /></Link>
       </aside>
 
      

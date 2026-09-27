@@ -45,7 +45,6 @@ export default function Preloader() {
   if (hidden) return null;
 
   return <div className={`page-loader brand-preloader${leaving ? ' is-leaving' : ''}`} role="status" aria-label="Loading Mr.Look Photography">
-    <p className="loader-eyebrow">Sri Lanka · Est. 2019</p>
     <BrandLogo className="loader-logo"/>
     <div className="loader-rule" aria-hidden="true"><i/></div>
     <p className="loader-caption">Stories, honestly remembered</p>

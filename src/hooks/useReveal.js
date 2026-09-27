@@ -6,12 +6,9 @@ export default function useReveal(routeKey) {
     const observed = new WeakSet();
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
+        entry.target.classList.toggle('is-visible', entry.isIntersecting);
       });
-    }, { threshold: 0.06, rootMargin: '0px 0px -3%' });
+    }, { threshold: 0.08, rootMargin: '-4% 0px -4%' });
 
     const register = (root = document) => {
       const elements = root.matches?.('[data-reveal]')
