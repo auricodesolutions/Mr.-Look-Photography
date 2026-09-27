@@ -24,6 +24,7 @@ import ReviewPage from './pages/ReviewPage.jsx';
 import TermsPage from './pages/TermsPage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 import Services from './components/Services/Services.jsx';
+import siteScrollTo from './utils/siteScroll.js';
 
 function HomePage() {
   return <main>
@@ -41,19 +42,43 @@ function HomePage() {
 function ScrollManager() {
   const location = useLocation();
   useEffect(() => {
-    let secondFrame;
-    const firstFrame = requestAnimationFrame(() => {
-      secondFrame = requestAnimationFrame(() => {
-      const target = location.hash && document.querySelector(location.hash);
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      else window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-      });
-    });
-    return () => {
-      cancelAnimationFrame(firstFrame);
-      if (secondFrame) cancelAnimationFrame(secondFrame);
+    let frame;
+    let attempts = 0;
+    let cancelled = false;
+
+    const scrollToDestination = () => {
+      if (cancelled) return;
+
+      const requestedTarget = location.state?.scrollTarget || (location.hash ? decodeURIComponent(location.hash.slice(1)) : '');
+
+      if (!requestedTarget) {
+        siteScrollTo(0, 'auto');
+        return;
+      }
+
+      const target = document.getElementById(requestedTarget);
+      if (!target && attempts < 30) {
+        attempts += 1;
+        frame = requestAnimationFrame(scrollToDestination);
+        return;
+      }
+
+      if (!target) {
+        siteScrollTo(0, 'auto');
+        return;
+      }
+
+      const headerHeight = document.querySelector('.site-header')?.getBoundingClientRect().height || 0;
+      const top = target.offsetTop - headerHeight;
+      siteScrollTo(top);
     };
-  }, [location.pathname, location.hash, location.key]);
+
+    frame = requestAnimationFrame(scrollToDestination);
+    return () => {
+      cancelled = true;
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, [location.pathname, location.hash, location.key, location.state]);
   return null;
 }
 

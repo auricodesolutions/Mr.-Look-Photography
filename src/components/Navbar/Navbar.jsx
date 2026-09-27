@@ -46,13 +46,14 @@ export default function Navbar() {
 
   const followLink = (event, to) => {
     setOpen(false);
-    const hash = to.includes('#') ? to.slice(to.indexOf('#') + 1) : '';
-    if (location.pathname !== '/' || !hash) return;
-    const target = document.getElementById(hash);
-    if (!target) return;
+    const hashIndex = to.indexOf('#');
+    if (hashIndex < 0) return;
+
     event.preventDefault();
-    navigate(to);
-    requestAnimationFrame(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+    const targetId = decodeURIComponent(to.slice(hashIndex + 1));
+    navigate({ pathname: '/', hash: `#${targetId}` }, {
+      state: { scrollTarget: targetId, scrollRequest: Date.now() }
+    });
   };
 
   return <>

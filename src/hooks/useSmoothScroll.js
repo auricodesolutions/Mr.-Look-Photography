@@ -57,14 +57,33 @@ export default function useSmoothScroll() {
       else target = clamp(target, 0, maximum());
     };
 
+    const onSiteScroll = event => {
+      const destination = clamp(event.detail?.top ?? 0, 0, maximum());
+      if (frame) {
+        cancelAnimationFrame(frame);
+        frame = 0;
+      }
+
+      target = destination;
+      if (event.detail?.behavior === 'auto') {
+        window.scrollTo(0, target);
+        return;
+      }
+
+      previousTime = performance.now();
+      frame = requestAnimationFrame(render);
+    };
+
     root.classList.add('inertial-scroll');
     addEventListener('wheel', onWheel, { passive: false });
     addEventListener('resize', sync, { passive: true });
+    addEventListener('site-scroll-to', onSiteScroll);
 
     return () => {
       root.classList.remove('inertial-scroll');
       removeEventListener('wheel', onWheel);
       removeEventListener('resize', sync);
+      removeEventListener('site-scroll-to', onSiteScroll);
       if (frame) cancelAnimationFrame(frame);
     };
   }, []);
